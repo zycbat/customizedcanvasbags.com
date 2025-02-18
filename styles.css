@@ -1,0 +1,54 @@
+/* 全局样式 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* 图片滑动容器样式 */
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.3s ease - in - out;
+}
+
+.slider img {
+  min-width: 100%;
+  object-fit: cover;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* 文字内容样式 */
+.content {
+  padding: 20px;
+  line-height: 1.6;
+}
