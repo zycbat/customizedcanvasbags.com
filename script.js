@@ -1,21 +1,18 @@
-const slider = document.querySelector('.slider');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
+const slider = document.querySelector('.image-slider');
+const images = slider.querySelectorAll('img');
 let currentIndex = 0;
-const slideWidth = slider.querySelector('img').clientWidth;
 
-// 上一张图片
-prevBtn.addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-  }
-});
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateSlider();
+}
 
-// 下一张图片
-nextBtn.addEventListener('click', () => {
-  if (currentIndex < slider.children.length - 1) {
-    currentIndex++;
-    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-  }
-});
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateSlider();
+}
+
+function updateSlider() {
+  const offset = -currentIndex * 100;
+  slider.style.transform = `translateX(${offset}%)`;
+}
